@@ -2,6 +2,7 @@
     --header-bg-color: #3a3a3a;
     --header-bg-hover-color: #505050; 
     --main-bg-color: #202020;
+    --menu-border-color: #606060;
     --alt-bg-color: #3a243a;
 }
 
@@ -56,7 +57,61 @@ a:hover {
     background-color: var(--header-bg-hover-color);
 }
 
+button {
+    color: white;
+    background-color: var(--header-bg-color);
+    font-size: 2rem;
+    height: 100%;
+    width: 5rem;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--header-bg-hover-color);
+}
+
+.button-container {
+    grid-column: 3 / 3;
+}
+
+#nav-menu-toggle {
+    display: none;
+}
+
 main {
     background-color: var(--main-bg-color);
     min-height: 100vh;
+    height: 200vh
+}
+
+menu {
+    display: none;
+    position: fixed;
+    width: 50%;
+    background-color: var(--header-bg-color);
+    border: 1px solid var(--menu-border-color);
+    list-style-type: none;
+    top: 3rem;
+    left: 50%;
+    padding: 0;
+}
+
+@media (max-width: 900px) {
+
+    #nav-bar {
+        display: none;
+    }
+
+    #nav-menu-toggle {
+        display: block;
+    }
+
+}
+
+@media (min-width: 901px) {
+
+    #nav-menu {
+        display: none;
+    }
+
 }
