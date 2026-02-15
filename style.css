@@ -1,6 +1,6 @@
 :root {
     --header-bg-color: #3a3a3a;
-    --header-bg-hover-color: #606060; 
+    --header-bg-hover-color: #505050; 
     --main-bg-color: #202020;
     --alt-bg-color: #3a243a;
 }
@@ -16,31 +16,40 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px 0 20px;
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33vw);
+    justify-items: center;
     background-color: var(--header-bg-color);
-    height: 7vh;
-    border-style: 5px solid white;
+    height: 3rem;
+    width: 100vw;
+}
+
+#header-padding {
+    height: 3rem;
 }
 
 #nav-home {
     font-size: 1.5rem;
+    grid-column: 1 / 1;
 }
 
-nav {
-    font-size: 1.3rem;
+#nav-bar {
+    font-size: 1rem;
     display: flex;
     height: 100%;
     align-items: center;
     gap: 20px;
+    grid-column: 2 / 2;
 }
 
 a {
     color: white;
-    padding: 10px 20px 10px 20px;
     text-decoration: none;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
 }
 
 a:hover {
@@ -49,5 +58,5 @@ a:hover {
 
 main {
     background-color: var(--main-bg-color);
-    height: 93vh;
+    min-height: 100vh;
 }
