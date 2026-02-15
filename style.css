@@ -1,3 +1,53 @@
+:root {
+    --header-bg-color: #3a3a3a;
+    --header-bg-hover-color: #606060; 
+    --main-bg-color: #202020;
+    --alt-bg-color: #3a243a;
+}
+
+* {
+    margin: 0;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    background-color: var(--header-bg-color);
+    height: 7vh;
+    border-style: 5px solid white;
+}
+
+#nav-home {
+    font-size: 1.5rem;
+}
+
+nav {
+    font-size: 1.3rem;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 20px;
+}
+
+a {
+    color: white;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--header-bg-hover-color);
+}
+
 main {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--main-bg-color);
+    height: 93vh;
 }
