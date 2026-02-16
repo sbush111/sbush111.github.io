@@ -1,21 +1,3 @@
-:root {
-    --header-bg-color: #3a3a3a;
-    --header-bg-hover-color: #505050; 
-    --main-bg-color: #202020;
-    --menu-border-color: #606060;
-    --alt-bg-color: #3a243a;
-}
-
-* {
-    margin: 0;
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-}
-
-body {
-    height: 100vh;
-    color: white;
-}
-
 header {
     position: fixed;
     display: grid;
@@ -70,7 +52,7 @@ button:hover {
     background-color: var(--header-bg-hover-color);
 }
 
-.button-container {
+#button-container {
     grid-column: 3 / 3;
 }
 
@@ -94,6 +76,14 @@ menu {
     top: 3rem;
     left: 50%;
     padding: 0;
+}
+
+menu.show {
+    display: block;
+}
+
+menu.hide {
+    display: none;
 }
 
 @media (max-width: 900px) {
