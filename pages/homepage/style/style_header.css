@@ -8,7 +8,7 @@ header {
     width: 100vw;
 }
 
-#header-padding {
+.dummy-header {
     height: 3rem;
 }
 
