@@ -1,0 +1,16 @@
+:root {
+    --header-bg-color: #3a3a3a;
+    --header-bg-hover-color: #505050; 
+    --main-bg-color: #202020;
+    --menu-border-color: #606060;
+}
+
+* {
+    margin: 0;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    color: white;
+}
