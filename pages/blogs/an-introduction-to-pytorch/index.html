@@ -41,12 +41,11 @@
         <div class="dummy-header"></div>
 
         <main>
-            
             <div class="article">
 
                 <div class="article-header">
                     <h1>An Introduction to PyTorch</h1>
-                    <h2>by Sean Bush | March 3, 2026 | 22 min read</h2>
+                    <h2>by Sean Bush | March 03, 2026 | 21 min read</h2>
                 </div>
 
                 <p>PyTorch is one of the most popular libraries for creating neural network-based models in Python. It provides extensive support for different kinds of networks, from simple multilayer perceptrons to complex convolutional or language-processing networks. PyTorch provides developers with very fine control over model design and over the training process. This high level of customizability makes PyTorch extremely powerful, but it also necessitates that you learn how to work with every single component, a not-insignificant task. Additionally, PyTorch's sometimes confusing syntax can make this already difficult task even more confusing. This article is meant to help you, aspiring developer, get started making your own PyTorch models by teaching you the steps for creating and training models and by clarifying some of the more confusing syntax.</p>
@@ -113,7 +112,7 @@
                 <p>PyTorch supplies two classes to make working with data easier. The first is the <code>torch.utils.data.Dataset</code> class, which serves as a convenient wrapper for your datasets. You are expected to define a custom class for your dataset that extends this <code>Dataset</code> class. When you do so, you need to define two methods.</p>
                 <p>First, you must define a <code>__len__()</code> method, which will be called if you pass the dataset object into the <code>len()</code> function. It should return the number of entries in your dataset. Second, is the <code>__getitem__()</code> method, which is called whenever you index into the object with square bracket notation. The method should return a tuple with the first entry being a tensor containing the input data, and the second entry being a tensor containing the label. Consider the following example:</p>
                 <pre><code>class SampleDataset(torch.utils.data.Dataset):
-
+                
                     def __init__(self):
                         self.data = [
                             [1, 2, 3],
@@ -122,13 +121,13 @@
                             [12, 0, -2]
                         ]
                         self.labels = [1, 0, 1, 0]
-
+                
                     def __getitem__(self, index: int) -&gt; tuple[torch.Tensor, torch.Tensor]:
                         return torch.tensor(self.data[index]), torch.tensor(self.labels[index])
-
+                
                     def __len__(self) -&gt; int:
                         return len(self.labels)
-
+                
                 </code></pre>
                 <p>Here we define a <code>SampleDataset</code> class which extends <code>torch.utils.data.Dataset</code>. This will contain some dummy data to illustrate how you define a <code>Dataset</code> object. The <code>__init__()</code> method loads the data and stores it in the <code>self.data</code> and <code>self.labels</code> attributes. The <code>__getitem__()</code> method returns the entry at the given index as a tuple of tensors, and the <code>__len__()</code> method returns the number of entries in the dataset. Now, once the object is instantiated, you can use square brackets to retrieve specific entries, and you can use the <code>len()</code> method to determine the number of entries. You can also iterate through the dataset using a for loop.</p>
                 <pre><code>data = SampleDataset()
@@ -141,7 +140,7 @@
                 <p>Output:</p>
                 <pre><code>(tensor([1, 2, 3]), tensor(1))
                 4
-
+                
                 tensor([1, 2, 3]) tensor(1)
                 tensor([6, 5, 4]) tensor(0)
                 tensor([ 1,  5, 10]) tensor(1)
@@ -162,7 +161,7 @@
                 <p>Output:</p>
                 <pre><code>tensor([[1, 2, 3],
                         [6, 5, 4]]) tensor([1, 0])
-
+                
                 tensor([[ 1,  5, 10],
                         [12,  0, -2]]) tensor([1, 0])
                 </code></pre>
@@ -185,7 +184,7 @@
                 <pre><code>tensor([[ 1,  2,  3],
                         [ 6,  5,  4],
                         [ 1,  5, 10]]) tensor([1, 0, 1])
-
+                
                 tensor([[12,  0, -2]]) tensor([0])
                 </code></pre>
                 <h3>Introducing MNIST</h3>
@@ -200,30 +199,30 @@
                 <h2>PyTorch Fundamental 3: Models</h2>
                 <p>Now, it is time to learn how to design a neural network model. First, you will create a new class to represent your model that extends the base class <code>torch.nn.Module</code>. This is the superclass for all neural networks and neural network layers in PyTorch. In the <code>__init__()</code> function of your new class, define the layers of your network using PyTorch's various layer options. Take a look at this example:</p>
                 <pre><code>class MnistDigitClassifier(torch.nn.Module):
-
+                
                     def __init__(self):
-
+                
                         # Required!
                         super().__init__()
-
+                
                         self.flat = torch.nn.Flatten()
-
+                
                         self.fc1 = torch.nn.Linear(28 * 28, 16)
                         self.fc2 = torch.nn.Linear(16, 16)
                         self.out = torch.nn.Linear(16, 10)
-
+                
                         self.act = torch.nn.ReLU()
-
+                
                     def forward(self, x: torch.Tensor) -&gt; torch.Tensor:
-
+                
                         x = self.flat(x)
-
+                
                         x = self.fc1(x)
                         x = self.act(x)
-
+                
                         x = self.fc2(x)
                         x = self.act(x)
-
+                
                         return self.out(x)
                 </code></pre>
                 <p>First, notice the call to <code>super().__init__()</code> at the very beginning of the constructor. This is required for PyTorch to set your model up correctly when it is created. Next, notice that we are creating layers using different modules from <code>torch.nn</code> and assigning them as model attributes. The <code>torch.nn</code> submodule contains many different options for model layers. You can find a list of options on the <a href="https://docs.pytorch.org/docs/stable/nn.html">torch.nn</a> page of the PyTorch documentation. </p>
@@ -240,7 +239,7 @@
                 </code></pre>
                 <p>Output:</p>
                 <pre><code>tensor([[ 0.2073,  0.0804, -0.0831,  0.2279, -0.0973, -0.1038, -0.2498, -0.0426,
-                        0.1610, -0.0976]], grad_fn=&lt;AddmmBackward0&gt;)
+                          0.1610, -0.0976]], grad_fn=&lt;AddmmBackward0&gt;)
                 </code></pre>
                 <p>With this, our model is defined and ready to be trained.</p>
                 <h2>Fundamental 4: The Training Loop</h2>
@@ -264,15 +263,15 @@
                     optimizer: torch.optim.Optimizer,
                     device: torch.device,
                     num_epochs: int) -&gt; None:
-
+                
                     model.train()
-
+                
                     for _ in range(num_epochs):
-
+                
                         for inputs, labels in loader:
-
+                
                             #...
-
+                
                 </code></pre>
                 <p>Now, inside the loop, we perform the following six steps. First, we zero out the gradients of the model, clearing away all of the information from the previous batch. This can be done with <code>optimizer.zero_grad()</code> or <code>model.zero_grad()</code>. We will use the former in this analysis. Remember that we linked the optimizer to the model when we passed in its parameters, so it has access to them.</p>
                 <pre><code>            optimizer.zero_grad()       
@@ -300,13 +299,13 @@
                     optimizer: torch.optim.Optimizer,
                     device: torch.device,
                     num_epochs: int) -&gt; None:
-
+                
                     model.train()
-
+                
                     for _ in range(num_epochs):
-
+                
                         for inputs, labels in loader:
-
+                
                             inputs, labels = inputs.to(device), labels.to(device)
                             optimizer.zero_grad()
                             outputs = model(inputs)
@@ -324,18 +323,18 @@
                     loader: torch.utils.data.DataLoader,
                     criterion: torch.nn.modules.loss._Loss,
                     device: torch.device) -&gt; None:
-
+                
                     model.eval()
-
+                
                     # Set up model metrics
                     # ...
-
+                
                     with torch.no_grad():
-
+                
                         for inputs, labels in loader:
-
+                
                             inputs, labels = inputs.to(device), labels.to(device)
-
+                
                             # ...
                 </code></pre>
                 <p>Next, we need to decide what metrics we want to test for. For a regression problem, you would probably want to use the root mean squared error or the mean absolute error, alongside the loss. For a classification problem, you may want to use accuracy, F1 score, and a confusion matrix in addition to the loss. PyTorch does not include functionality for different evaluation metrics by default, so you will need to implement them by hand or consider using libraries like PyTorch Lightning, which extend base PyTorch functionality. For this introduction, we will only test for two metrics: accuracy and loss.</p>
@@ -356,26 +355,26 @@
                 <pre><code>def test(model: torch.nn.Module,
                     loader: torch.utils.data.DataLoader,
                     criterion: torch.nn.modules.loss._Loss) -&gt; tuple[float, float]:
-
+                
                     model.eval()
-
+                
                     num_correct = 0
                     running_loss = 0.0
-
+                
                     with torch.no_grad():
-
+                
                         for inputs, labels in loader:
-
+                
                             outputs = model(inputs)
                             loss = criterion(outputs, labels)
                             running_loss += loss.item() * len(labels)
-
+                
                             preds = torch.argmax(outputs, dim=1)
                             num_correct += (preds == labels).sum().item()
-
+                
                     average_loss = running_loss / len(loader.dataset)
                     accuracy = num_correct / len(loader.dataset)
-
+                
                     return average_loss, accuracy
                 </code></pre>
                 <p>The following code snippet will call <code>test()</code> and output the metrics in a nice format.</p>
@@ -385,13 +384,13 @@
                 <p>Output:</p>
                 <pre><code>Model achieved 94.72% accuracy [cross-entropy loss: 0.1785]
                 </code></pre>
+                <hr />
                 <p>My model achieved an accuracy of about 95% after a single training epoch. There is randomness involved in the initialization of the neural network; your results should be different, but in the same ballpark. There are ways of ensuring reproducibility within PyTorch, but that is an article for another day.</p>
                 <hr />
                 <p>By now, you should be familiar with the fundamentals of PyTorch and ready to create some models of your own, but there is still much to learn. Your next steps will likely include trying out different models and model architectures, tracking performance metrics during training, visualizing performance metrics, hyperparameter tuning, and much more. PyTorch has a variety of <a href="https://docs.pytorch.org/tutorials/">tutorials</a> for you to explore when you are ready to move on.</p>
                 <p>There will also be more to come on PyTorch on this blog. Very soon, an article on model validations and hyperparameter tuning will be up, so make sure to check back in occasionally to see what's new. Good luck in your machine learning journey. Onwards and upwards!</p>
 
             </div>
-
         </main>
 
         <footer>
