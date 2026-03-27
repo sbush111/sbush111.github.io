@@ -1,3 +1,4 @@
+import argparse as agp
 import datetime as dt
 import markdown as md
 import os
@@ -98,8 +99,23 @@ def create_favicon(target_dir: str, source_path: str = 'pages/blogs/blog_templat
     sh.copy(source_path, target_path)
 
 if __name__ == '__main__':
-    md_filepath = sys.argv[1]
-    pub_date = sys.argv[2] if len(sys.argv) >= 3 else None
+
+    parser = agp.ArgumentParser(prog='MarkdownCompiler', 
+                                description='Compile a markdown file into an HTML/CSS/JS webpage ' \
+                                'based on the blog post webpage template.')
+
+    parser.add_argument('markdown_filepath', help='The filepath, relative or absolute, of the markdown file to be compiled. The ' \
+                        'resulting files with be placed in the same directory.')
+    
+    parser.add_argument('publish_date', nargs='?', help='(optional) The publishing date of the blog. If an already ' \
+                        'published article needs to be updated and recompiled, supply the original publishing date. If ' \
+                        'left blank, the current date will be used.')
+
+    args = parser.parse_args()
+    md_filepath: str = args.markdown_filepath
+    pub_date: str | None = args.publish_date
+
     directory = compile(md_filepath, pub_date)
     create_favicon(directory)
+
     print(f'Page compiled.')
