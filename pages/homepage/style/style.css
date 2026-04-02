@@ -1,6 +1,4 @@
 :root {
-    --header-bg-color: #3a3a3a;
-    --header-bg-hover-color: #505050; 
     --main-bg-color: #202020;
     --menu-border-color: #606060;
 }
@@ -13,4 +11,27 @@
 body {
     height: 100vh;
     color: white;
+}
+
+main {
+    background-color: var(--main-bg-color);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--header-bg-hover-color);
+}
+
+button {
+    color: white;
+    background-color: var(--header-bg-color);
+    border: none;
+}
+
+button:hover {
+    background-color: var(--header-bg-hover-color);
 }
