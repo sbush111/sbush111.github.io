@@ -11,17 +11,6 @@ main {
     min-width: 800px;
 }
 
-.contact h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 4rem;
-}
-
-.contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
 .contact .links {
     display: grid;
     row-gap: 1rem;
