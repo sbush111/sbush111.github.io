@@ -9,6 +9,7 @@ main {
 
 .article {
     max-width: 800px;
+    margin-bottom: 50px;
 }
 
 .article .article-header h1 {

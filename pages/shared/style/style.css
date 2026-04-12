@@ -47,7 +47,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: first;
+    justify-content: flex-start;
     align-items: center;
     background-color: var(--main-bg-color);
 }
