@@ -1,0 +1,38 @@
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.resume-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.resume-header h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+.resume-header a {
+    text-decoration: underline;
+}
+
+.resume {
+    max-width: 50vw;
+}
+
+.resume hr {
+    margin: 20px 0 15px 0;
+}
+
+.resume li {
+    margin-bottom: 10px;
+}
+
+.resume li li {
+    margin-bottom: 0;
+}
