@@ -21,6 +21,10 @@
     text-decoration: underline;
 }
 
+.resume-header .right {
+    text-align: right;
+}
+
 .resume {
     max-width: 50vw;
 }
@@ -35,4 +39,12 @@
 
 .resume li li {
     margin-bottom: 0;
+}
+
+.resume {
+    font-size: 1.2rem;
+}
+
+.resume a {
+    text-decoration: underline;
 }
