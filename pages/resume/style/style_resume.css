@@ -30,13 +30,17 @@
     margin-bottom: 20px;
 }
 
+.resume h1 {
+    text-align: center;
+}
+
 .resume hr {
     margin: 20px 0 15px 0;
 }
 
-#top-hr {
+/* #top-hr {
     margin: 0 0 15px 0;
-}
+} */
 
 .resume li:has(li) {
     margin-bottom: 10px;
@@ -48,4 +52,26 @@
 
 .resume a {
     text-decoration: underline;
+}
+
+#download-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+
+#download-button {
+    color: white;
+    background-color: var(--header-bg-color);
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: black 3px 3px;
+}
+
+#download-button:hover {
+    background-color: var(--header-bg-hover-color);
 }
