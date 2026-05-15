@@ -22,14 +22,10 @@
 }
 
 .sample-project img {
-    width: 200px;
-    height: 200px;
-    float: left;
-    margin-right: 30px;
-    margin-bottom: 30px;
+    width: 400px;
 }
 
-.sample-project .content ul {
+#links {
     border-radius: 10px;
     width: 175px;
     flex-shrink: 0;
