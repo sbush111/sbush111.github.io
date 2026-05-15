@@ -1,0 +1,36 @@
+.home {
+    width: 90%;
+    max-width: 900px;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+.home h1, .home h2, .home h3, .home h4, .home h5 {
+    text-align: center;
+}
+
+.home img {
+    width: 200px;
+}
+
+.right-align {
+    text-align: right;
+}
+
+#title-header {
+    margin-bottom: 0;
+}
+
+#title-subtitle {
+    margin-bottom: 20px;
+}
+
+.sampler {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: var(--header-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: black 5px 5px;
+}
