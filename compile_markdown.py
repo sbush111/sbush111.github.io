@@ -94,10 +94,6 @@ def write_html(directory: str, text: str) -> None:
     with open(filepath, 'wt') as file:
         file.write(text)
 
-def create_favicon(target_dir: str, source_path: str = 'pages/blogs/blog_template/favicon.ico') -> None:
-    target_path = os.path.join(target_dir, 'favicon.ico')
-    sh.copy(source_path, target_path)
-
 if __name__ == '__main__':
 
     parser = agp.ArgumentParser(prog='MarkdownCompiler', 
@@ -116,6 +112,5 @@ if __name__ == '__main__':
     pub_date: str | None = args.publish_date
 
     directory = compile(md_filepath, pub_date)
-    create_favicon(directory)
 
     print(f'Page compiled.')
