@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sean Bush</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
+        <link rel="stylesheet" href="/pages/shared/style/style.css">
+        <link rel="stylesheet" href="/pages/shared/style/style_header.css">
+        <link rel="stylesheet" href="style/style_projects.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <script src="/pages/shared/scripts/script_header.js" async></script>
+    </head>
+    <body>
+
+        <header id="page-header">
+            <nav>
+                <a id="nav-home" href="/pages/homepage">Sean Bush</a>
+            </nav>
+            <nav id="nav-bar">
+                <a href="/pages/about">About</a>
+                <a href="/pages/blog">Blog</a>
+                <a href="/pages/portfolio">Portfolio</a>
+                <a href="/pages/resume">Resume</a>
+                <a href="/pages/contact">Contact</a>
+            </nav>
+            <div id="button-container">
+                <button id="nav-menu-toggle">≡</button>
+            </div>
+            <menu id="nav-menu" class="hide">
+                <li><a href="/pages/about">About</a></li>
+                <li><a href="/pages/blog">Blog</a></li>
+                <li><a href="/pages/portfolio">Portfolio</a></li>
+                <li><a href="/pages/resume">Resume</a></li>
+                <li><a href="/pages/contact">Contact</a></li>
+            </menu>
+        </header>
+
+        <div class="dummy-header"></div>
+
+        <main>
+
+            <div class="sample-project">
+
+                <h1>Image Equivalence Model</h1>
+
+                <div class="content">
+
+                    <div>
+
+                        <p>A convolutional neural network for determining if two modified images originate from the same source.</p>
+
+                        <p style="text-align: center;"><img src="example_same.png"></p>
+
+                        <p>
+                            This project is intended to illustrate the process of creating a convolutional neural network for the 
+                            purpose of computer vision and image processing. To this end, I derived a new dataset from the CIFAR100 
+                            dataset, creating image pairs that were modified by various torchvision transforms. Half of the pairs 
+                            contained images derived from the same source image, and half of the pairs contained images derived 
+                            from different source images. The model created for this project takes an image pair and determines 
+                            whether the images come from the same source or not.
+                        </p>
+
+                        <p>
+                            <h3>Displayed Skills:</h3>
+                            <ul>
+                                <li>Programming
+                                    <ul>
+                                        <li>Python</li>
+                                        <li>PyTorch</li>
+                                        <li>Numpy</li>
+                                    </ul>
+                                </li>
+                                <li>Machine Learning
+                                    <ul>
+                                        <li>Convolutional Neural Networks</li>
+                                        <li>Siamese Model Architectures</li>
+                                        <li>Computer Vision</li>
+                                    </ul>
+                                </li>
+                                <li>Reporting and visualization</li>
+                            </ul>
+                        </p>
+
+                    </div>
+
+                    <ul id="links">
+                        <h1>Links</h1>
+                        <hr>
+                        <li><a href="https://github.com/sbush111/image-equivalence-model" target="_blank">GitHub Repository</a></li>
+                        <li><a href="image-equivalence-model-report.pdf" target="_blank">Project Report</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+    </body>
+</html>
