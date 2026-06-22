@@ -23,8 +23,23 @@
     text-align: center;
 }
 
+.home #contact-links p {
+    margin-bottom: 10px;
+}
+
+.home #contact-links img {
+    width: 1.5rem;
+    height: 1.5rem;
+    box-shadow: none;
+    border-radius: 0;
+}
+
 .right-align {
     text-align: right;
+}
+
+.center-align {
+    text-align: center;
 }
 
 #title-header {
