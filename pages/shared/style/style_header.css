@@ -16,6 +16,7 @@ header {
 
 .dummy-header {
     height: 3rem;
+    background-color: var(--header-bg-color);
 }
 
 #nav-home {

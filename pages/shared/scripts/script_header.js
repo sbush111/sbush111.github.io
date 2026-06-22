@@ -23,8 +23,6 @@ const header_html = `
                 <li><a href="/pages/contact">Contact</a></li>
             </menu>
         </header>
-
-        <div class="dummy-header"></div>
 `
 
 body.insertAdjacentHTML('afterbegin', header_html);
