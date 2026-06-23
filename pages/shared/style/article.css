@@ -1,9 +1,3 @@
-.article h1 { /* Used for article titles only */
-    margin-top: 25px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
 .article p {
     text-align: justify;
     text-justify: inter-word;

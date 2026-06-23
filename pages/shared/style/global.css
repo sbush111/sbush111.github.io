@@ -12,16 +12,17 @@ main {
     align-items: center;
 }
 
+h1 {
+    font-size: 3rem;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center; 
+}
+
 p {
     font-size: 1.2rem;
 }
 
 a {
     color: skyblue;
-}
-
-.content-pane {
-    width: 90%;
-    max-width: 800px;
-    margin-bottom: 50px;
 }
