@@ -1,0 +1,7 @@
+#img-headshot {
+    float: left;
+    width: 275px;
+    margin: 0 25px 20px 0;
+    border-radius: 10px;
+    box-shadow: black 8px 8px;
+}

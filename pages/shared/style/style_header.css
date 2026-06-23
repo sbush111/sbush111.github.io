@@ -10,7 +10,7 @@ header {
     grid-template-columns: repeat(3, 33.33vw);
     justify-items: center;
     background-color: var(--header-bg-color);
-    height: var(--header-height);
+    height: 3rem;
     width: 100vw;
 }
 
@@ -39,6 +39,11 @@ header a {
     height: 3rem;
     padding: 0 10px;
     text-decoration: none;
+    color: white;
+}
+
+header a:hover {
+    background-color: var(--header-bg-hover-color);
 }
 
 header button {
@@ -56,7 +61,7 @@ header button {
 }
 
 main {
-    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - 3rem);
 }
 
 header menu {
