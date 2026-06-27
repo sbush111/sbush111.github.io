@@ -4,9 +4,13 @@
         <title>Sean Bush</title>
         <meta charset="utf-8">
         <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="/pages/shared/style/style.css">
+
+        <link rel="stylesheet" href="/pages/shared/style/constants.css">
+        <link rel="stylesheet" href="/pages/shared/style/global.css">
         <link rel="stylesheet" href="/pages/shared/style/style_header.css">
-        <link rel="stylesheet" href="style/style_projects.css">
+        <link rel="stylesheet" href="/pages/shared/style/content_pane.css">
+        <link rel="stylesheet" href="/pages/shared/style/project.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
@@ -18,92 +22,94 @@
 
         <main>
 
-            <div class="library-database-project">
+            <div class="content-pane">
 
                 <h1>Library Database Project</h1>
 
-                <div class="content">
+                <p>This project takes a libary dataset and creates a normalized PostgreSQL database to store the data.</p>
 
-                    <div>
+                <img src="/pages/shared/media/flowchart_entity_relationship_diagram.png">
 
-                        <p style="text-align: center;"><img src="thumbnail.png"></p>
+                <hr>
 
-                        <p>
-                            Database design can significantly improve or hinder an organization's ability to gather 
-                            insights from their data. In this project, I show how one might go about designing a 
-                            database for use in a city library. I will take a set of data that is currently not well-suited for 
-                            long-term data storage and design a better, more-normalized data schema. Then I will 
-                            implement this schema in a new PostgreSQL database, import the data from the old schema 
-                            into the new database, and illustrate how to query the database to answer common 
-                            organizational questions. Lastly, I will show how indexes can be used to optimize common 
-                            queries. 
-                        </p>
+                <h2>Description</h2>
 
-                        <p>
-                            <h3>Displayed Skills:</h3>
-                            <ul>
+                <p>
+                    Database design can significantly improve or hinder an organization's ability to gather 
+                    insights from their data. In this project, I show how one might go about designing a 
+                    database for use in a city library. I will take a set of data that is currently not well-suited for 
+                    long-term data storage and design a better, more-normalized data schema. Then I will 
+                    implement this schema in a new PostgreSQL database, import the data from the old schema 
+                    into the new database, and illustrate how to query the database to answer common 
+                    organizational questions. Lastly, I will show how indexes can be used to optimize common 
+                    queries. 
+                </p>
 
-                                <li>Database Design
-                                    <ul>
-                                        <li>Schema Design</li>
-                                        <li>Data Normalization</li>
-                                        <li>Entity-relationship diagramming</li>
-                                    </ul>
-                                </li>
+                <hr>
 
-                                <li>PostgreSQL
-                                    <ul>
-                                        <li>Database Creation</li>
-                                        <li>Querying
-                                            <ul>
-                                                <li>Common Table Expressions (CTEs)</li>
-                                                <li>PostgreSQL Functions</li>
-                                                <li>Aggregation</li>
-                                                <li>Regular Expressions</li>
-                                            </ul>
-                                        </li>
-                                        <li>Indexing for Optimization</li>
-                                    </ul>
-                                </li>
+                <h2>Links</h2>
 
-                                <li>Docker
-                                    <ul>
-                                        <li>Containerization</li>
-                                        <li>Dockerfile creation</li>
-                                        <li>Docker Compose</li>
-                                        <li>Container Volumnes</li>
-                                        <li>Local Volume Mounting</li>
-                                    </ul>
-                                </li>
+                <ul>
+                    <li><a href="https://github.com/sbush111/library-database-management" target="_blank">GitHub Repository</a></li>
+                    <li><a href="report.pdf" target="_blank">Project Report</a></li>
+                </ul>
 
-                                <li>Git
-                                    <ul>
-                                        <li>Version Control</li>
-                                        <li>Using .env files for security</li>
-                                    </ul>
-                                </li>
+                <hr>
 
-                                <li>Programming
-                                    <ul>
-                                        <li>Python</li>
-                                        <li>Synthetic Data Generation with Faker</li>
-                                        <li>Pandas</li>
-                                    </ul>
-                                </li>
+                <h2>Displayed Skills</h2>
 
-                            </ul>
-                        </p>
+                <ul>
+                    <li>Database Design
+                        <ul>
+                            <li>Schema Design</li>
+                            <li>Data Normalization</li>
+                            <li>Entity-relationship diagramming</li>
+                        </ul>
+                    </li>
 
-                    </div>
+                    <li>PostgreSQL
+                        <ul>
+                            <li>Database Creation</li>
+                            <li>Querying
+                                <ul>
+                                    <li>Common Table Expressions (CTEs)</li>
+                                    <li>PostgreSQL Functions</li>
+                                    <li>Aggregation</li>
+                                    <li>Regular Expressions</li>
+                                </ul>
+                            </li>
+                            <li>Indexing for Optimization</li>
+                        </ul>
+                    </li>
 
-                    <ul id="links">
-                        <h1>Links</h1>
-                        <hr>
-                        <li><a href="https://github.com/sbush111/library-database-management" target="_blank">GitHub Repository</a></li>
-                        <li><a href="report.pdf" target="_blank">Project Report</a></li>
-                    </ul>
+                    <li>Docker
+                        <ul>
+                            <li>Containerization</li>
+                            <li>Dockerfile creation</li>
+                            <li>Docker Compose</li>
+                            <li>Container Volumnes</li>
+                            <li>Local Volume Mounting</li>
+                        </ul>
+                    </li>
 
-                </div>
+                    <li>Git
+                        <ul>
+                            <li>Version Control</li>
+                            <li>Using .env files for security</li>
+                        </ul>
+                    </li>
+
+                    <li>Programming
+                        <ul>
+                            <li>Python</li>
+                            <li>Synthetic Data Generation with Faker</li>
+                            <li>Pandas</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <hr>
 
             </div>
 

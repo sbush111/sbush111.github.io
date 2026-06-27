@@ -3,10 +3,15 @@
     <head>
         <title>Sean Bush</title>
         <meta charset="utf-8">
-        <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="/pages/shared/style/style.css">
+        <link rel="icon" href="/pages/shared/media/favicon.ico" type="image/png">
+
+        <link rel="stylesheet" href="/pages/shared/style/constants.css">
+        <link rel="stylesheet" href="/pages/shared/style/global.css">
         <link rel="stylesheet" href="/pages/shared/style/style_header.css">
-        <link rel="stylesheet" href="style/style_projects.css">
+
+        <link rel="stylesheet" href="/pages/shared/style/content_pane.css">
+        <link rel="stylesheet" href="/pages/shared/style/project.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
@@ -18,66 +23,63 @@
 
         <main>
 
-            <div class="sample-project">
+            <div class="content-pane">
 
                 <h1>Image Equivalence Model</h1>
 
-                <div class="content">
+                <p>A convolutional neural network for determining if two modified images originate from the same source.</p>
 
-                    <div>
+                <img src="/pages/shared/media/image_pair_from_same_source.png">
 
-                        <p>A convolutional neural network for determining if two modified images originate from the same source.</p>
+                <hr>
 
-                        <p style="text-align: center;"><img src="example_same.png"></p>
+                <h2>Description</h2>
 
-                        <p>
-                            This project is intended to illustrate the process of creating a convolutional neural network for the 
-                            purpose of computer vision and image processing. To this end, I derived a new dataset from the CIFAR100 
-                            dataset, creating image pairs that were modified by various torchvision transforms. Half of the pairs 
-                            contained images derived from the same source image, and half of the pairs contained images derived 
-                            from different source images. The model created for this project takes an image pair and determines 
-                            whether the images come from the same source or not.
-                        </p>
+                <p>
+                    This project is intended to illustrate the process of creating a convolutional neural network for the 
+                    purpose of computer vision and image processing. To this end, I derived a new dataset from the CIFAR100 
+                    dataset, creating image pairs that were modified by various torchvision transforms. Half of the pairs 
+                    contained images derived from the same source image, and half of the pairs contained images derived 
+                    from different source images. The model created for this project takes an image pair and determines 
+                    whether the images come from the same source or not.
+                </p>
 
-                        <p>
-                            <h3>Displayed Skills:</h3>
-                            <ul>
-                                <li>Programming
-                                    <ul>
-                                        <li>Python</li>
-                                        <li>PyTorch</li>
-                                        <li>Numpy</li>
-                                    </ul>
-                                </li>
-                                <li>Machine Learning
-                                    <ul>
-                                        <li>Convolutional Neural Networks</li>
-                                        <li>Siamese Model Architectures</li>
-                                        <li>Computer Vision</li>
-                                    </ul>
-                                </li>
-                                <li>Reporting and visualization</li>
-                            </ul>
-                        </p>
+                <hr>
 
-                    </div>
+                <h2>Links</h2>
 
-                    <ul id="links">
-                        <h1>Links</h1>
-                        <hr>
-                        <li><a href="https://github.com/sbush111/image-equivalence-model" target="_blank">GitHub Repository</a></li>
-                        <li><a href="image-equivalence-model-report.pdf" target="_blank">Project Report</a></li>
-                    </ul>
+                <ul id="links">
+                    <li><a href="https://github.com/sbush111/image-equivalence-model" target="_blank">GitHub Repository</a></li>
+                    <li><a href="image-equivalence-model-report.pdf" target="_blank">Project Report</a></li>
+                </ul>
 
-                </div>
+                <hr>
+
+                <h2>Displayed Skills</h2>
+
+                <ul>
+                    <li>Programming
+                        <ul>
+                            <li>Python</li>
+                            <li>PyTorch</li>
+                            <li>Numpy</li>
+                        </ul>
+                    </li>
+                    <li>Machine Learning
+                        <ul>
+                            <li>Convolutional Neural Networks</li>
+                            <li>Siamese Model Architectures</li>
+                            <li>Computer Vision</li>
+                        </ul>
+                    <li>Reporting and Visualization</li>
+                    </li>
+                </ul>
+
+                <hr>
 
             </div>
 
         </main>
-
-        <footer>
-
-        </footer>
 
     </body>
 </html>
