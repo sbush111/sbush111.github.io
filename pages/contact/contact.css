@@ -1,4 +1,5 @@
 h2 {
+    margin-top: 30px;
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
@@ -6,20 +7,4 @@ h2 {
 
 .content-pane {
     max-width: 380px;
-}
-
-.link-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-#links {
-    font-size: 1.5rem;
-    display: grid;
-    row-gap: 1rem;
-    column-gap: 0.5rem;
-    grid-template-rows: 2rem 2rem 2rem;
-    grid-template-columns: 2rem 22rem;
-    justify-items: left;
-    align-items: center;
 }
