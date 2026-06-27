@@ -3,10 +3,16 @@
     <head>
         <title>Sean Bush</title>
         <meta charset="utf-8">
-        <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="/pages/shared/style/style.css">
+        <link rel="icon" href="/pages/shared/media/favicon.ico" type="image/png">
+
+        <link rel="stylesheet" href="/pages/shared/style/constants.css">
+        <link rel="stylesheet" href="/pages/shared/style/global.css">
         <link rel="stylesheet" href="/pages/shared/style/style_header.css">
-        <link rel="stylesheet" href="style/style_home.css">
+        <link rel="stylesheet" href="/pages/shared/style/content_pane.css">
+        <link rel="stylesheet" href="/pages/shared/style/link_list.css">
+        <link rel="stylesheet" href="/pages/shared/style/icon_link_list.css">
+        <link rel="stylesheet" href="homepage.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
@@ -19,20 +25,19 @@
 
         <main>
 
-            <div class="home">
+            <div class="content-pane">
 
-                <h1 id="title-header">Sean Bush</h1>
-                <h5 id="title-subtitle">Data Scientist</h5>
+                <h1 id="title">Sean Bush</h1>
+                <h2 id="subtitle">Data Scientist</h2>
+                <img id="headshot" src="/pages/shared/media/headshot.png">
 
-                <div id="headshot"><img src="/pages/about/headshot.png"></div>
-
-                <div class="center-align" id="contact-links">
-                    <p></p><i class="material-icons" id="email-icon">email</i>
-                        <span id="email-text">Email: <a href="mailto:sbush111604@gmail.com">sbush111604@gmail.com</a></span></p>
-                    <p><img id="linkedin-logo" src="/pages/contact/InBug-White.png">
-                        <span id="linkedin-text">LinkedIn: <a href="https://www.linkedin.com/in/sean-bush-tx/" target="_blank">sean-bush-tx</a></span></p>
-                    <p><img id="handshake-logo" src="/pages/contact/Handshake_avatar_round.png">
-                        <span id="handshake-text">Handshake: <a href="https://app.joinhandshake.com/profiles/seanbushtx" target="_blank">seanbushtx</a></span></p>
+                <div class="icon-link-list">
+                    <i class="material-icons icon-link-list-icon" id="email-icon">email</i>
+                    <span id="email-text">Email: <a href="mailto:sbush111604@gmail.com">sbush111604@gmail.com</a></span>
+                    <img class="icon-link-list-icon" src="/pages/shared/media/InBug-White.png">
+                    <span id="linkedin-text">LinkedIn: <a href="https://www.linkedin.com/in/sean-bush-tx/" target="_blank">sean-bush-tx</a></span>
+                    <img class="icon-link-list-icon" src="/pages/shared/media/Handshake_avatar_round.png">
+                    <span id="handshake-text">Handshake: <a href="https://app.joinhandshake.com/profiles/seanbushtx" target="_blank">seanbushtx</a></span>
                 </div>
 
                 <hr>
@@ -40,55 +45,59 @@
                 <p>
                     A data scientist aiming to leverage strong skills in machine learning, statistical analysis, programming, 
                     and communication to assist organizations in making data-backed decisions and maintaining machine learning 
-                    systems.
+                    systems. 
                 </p>
 
-                <p class="right-align"><a href="/pages/about">More about Sean</a></p>
+                <p id="about-link"><a href="/pages/about">More about Sean</a></p>
 
                 <hr>
 
-                <h3>Recent Blog Articles</h3>
+                <h2 class="link-list-title">Recent Blog Articles</h3>
 
-                <a href="/pages/blogs/image-transform-baking/" class="sampler">
-                    <h1>To Bake or Not to Bake: Data Preparation Reflections</h1>
-                    <h2>June 14, 2026</h2>
-                    <p>I have just recently completed my Image Equivalence Model project, which is available on the portfolio page 
-                        of my website. In it, I created a convolutional neural network capable of determining if two modified images 
-                        originate from the same source...</p>
-                </a>
+                <div class="link-list">
 
-                <a href="/pages/blogs/business-need-alignment/" class="sampler">
-                    <h1>Ensure Your Analysis Aligns with Business Needs</h1>
-                    <h2>May 25, 2026</h2>
-                    <p>How often have you been given a task and, with no additional information, been set loose to complete it on 
-                        your own? You go to work and quickly realize that you have no clue what exactly your supervisor is asking 
-                        for. You do your best to complete the project, well aware...</p>
-                </a>
+                    <a href="/pages/blogs/image-transform-baking/">
+                        <h1>To Bake or Not to Bake: Data Preparation Reflections</h1>
+                        <h2>June 14, 2026</h2>
+                        <p>I have just recently completed my Image Equivalence Model project, which is available on the portfolio page 
+                            of my website. In it, I created a convolutional neural network capable of determining if two modified images 
+                            originate from the same source...</p>
+                    </a>
+
+                    <a href="/pages/blogs/business-need-alignment/">
+                        <h1>Ensure Your Analysis Aligns with Business Needs</h1>
+                        <h2>May 25, 2026</h2>
+                        <p>How often have you been given a task and, with no additional information, been set loose to complete it on 
+                            your own? You go to work and quickly realize that you have no clue what exactly your supervisor is asking 
+                            for. You do your best to complete the project, well aware...</p>
+                    </a>
+
+                </div>
 
                 <hr>
 
-                <h3>Portfolio Projects</h3>
+                <h2 class="link-list-title">Portfolio Projects</h3>
 
-                <a href="/pages/projects/image-equivalence-model" class="sampler">
-                    <h1>Image Equivalence Model</h1>
-                    <h2>June 13, 2026</h2>
-                    <p>A convolutional neural network for determining if two modified images originate from the same source.</p>
-                </a>
+                <div class="link-list">
 
-                <a href="/pages/projects/regression_project" class="sampler">
-                    <h1>Regression Analysis of U.S. Poverty Rates and Literacy Scores</h1>
-                    <h2>April 30, 2026</h2>
-                    <p>This project assesses the relationship between poverty and literacy in the United Status using linear regression 
-                        analysis.</p>
-                </a>
+                    <a href="/pages/projects/image-equivalence-model">
+                        <h1>Image Equivalence Model</h1>
+                        <h2>June 13, 2026</h2>
+                        <p>A convolutional neural network for determining if two modified images originate from the same source.</p>
+                    </a>
+
+                    <a href="/pages/projects/regression_project">
+                        <h1>Regression Analysis of U.S. Poverty Rates and Literacy Scores</h1>
+                        <h2>April 30, 2026</h2>
+                        <p>This project assesses the relationship between poverty and literacy in the United Status using linear regression 
+                            analysis.</p>
+                    </a>
+
+                </div>
 
             </div>
 
         </main>
-
-        <footer>
-
-        </footer>
 
     </body>
 </html>
