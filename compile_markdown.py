@@ -1,10 +1,9 @@
 import argparse as agp
 import datetime as dt
 import markdown as md
-from pathlib import Path
 import re
 
-def compile(markdown_filepath: str, publish_date: str | None = None, delete: bool = False) -> str:
+def compile(markdown_filepath: str, publish_date: str | None = None) -> str:
 
     article_md = load_markdown(markdown_filepath)
     title, article_md = split_title_from_article(article_md)
@@ -14,7 +13,6 @@ def compile(markdown_filepath: str, publish_date: str | None = None, delete: boo
     read_time = estimate_reading_time_minutes(article_md)
     article_header = create_article_header(title, read_time, publish_date)
     article_body = indent_article_body(article_html)
-    article_body = update_image_filepaths(markdown_filepath, article_body, delete)
 
     html_complete = '\n'.join([template_head, article_header, article_body, template_tail])
     directory = get_directory(markdown_filepath)
@@ -38,31 +36,6 @@ def split_title_from_article(text: str) -> tuple[str, str]:
 
 def compile_markdown_to_html(markdown_text: str) -> str:
     return md.markdown(markdown_text, extensions=['fenced_code'])
-    
-def update_image_filepaths(markdown_filepath: str, article_body: str, delete: bool = False) -> str:
-
-    image_tag_pattern = r'<img (?:alt=".+" )?src="[0-9A-Za-z\._\- ]+" \/>'
-    image_tags = re.findall(image_tag_pattern, article_body)
-
-    for image_tag in image_tags:
-
-        first, temp = image_tag.split('src="')
-        image_filename, back = temp.split('"')
-
-        markdown_filepath_object: Path = Path(markdown_filepath)
-        markdown_file_directory: Path = markdown_filepath_object.parent
-        project_image_filepath: Path = markdown_file_directory / image_filename
-        project_new_image_filepath: Path = Path() / 'pages' / 'shared' / 'media' / image_filename
-
-        project_image_filepath.copy(project_new_image_filepath)
-
-        if delete:
-            project_image_filepath.unlink()
-
-        reassembled = first + 'src="/' + str(project_new_image_filepath) + '"' + back
-        article_body = article_body.replace(image_tag, reassembled)
-
-    return article_body
     
 def tabs(num_tabs: int, *, tab_size: int = 4) -> str:
     return ' ' * (num_tabs * tab_size)
@@ -92,10 +65,8 @@ def get_date(date_str: str | None) -> dt.date:
 def create_article_header(title: str, read_time_minutes: int, pub_date: str | None) -> str:
     date_str = get_date(pub_date).strftime('%B %d, %Y')
     article_header = []
-    article_header.append(tabs(4) + '<div class="article-header">\n')
-    article_header.append(tabs(5) + f'<h1>{title}</h1>\n')
-    article_header.append(tabs(5) + f'<h2>by Sean Bush | {date_str} | {read_time_minutes} min read</h2>\n')
-    article_header.append(tabs(4) + '</div>\n')
+    article_header.append(tabs(4) + f'<h1>{title}</h1>\n')
+    article_header.append(tabs(4) + f'<h2 class="subtitle">by Sean Bush | {date_str} | {read_time_minutes} min read</h2>\n')
     article_header = ''.join(article_header)
     return article_header
 
@@ -131,13 +102,10 @@ if __name__ == '__main__':
                         'published article needs to be updated and recompiled, supply the original publishing date. If ' \
                         'left blank, the current date will be used.')
 
-    parser.add_argument('--delete', '-d', help='Delete old image files from markdown directory after copying to shared directory.', action='store_true')
-
     args = parser.parse_args()
     md_filepath: str = args.markdown_filepath
     pub_date: str | None = args.publish_date
-    delete: bool = args.delete
 
-    directory = compile(md_filepath, pub_date, delete)
+    directory = compile(md_filepath, pub_date)
 
     print(f'Page compiled.')
