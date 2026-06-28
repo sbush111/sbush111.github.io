@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
+        
         <title>Sean Bush</title>
         <meta charset="utf-8">
-        <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="/pages/shared/style/style.css">
+        <link rel="icon" href="/pages/shared/media/favicon.ico" type="image/png">
+
+        <link rel="stylesheet" href="/pages/shared/style/constants.css">
+        <link rel="stylesheet" href="/pages/shared/style/global.css">
         <link rel="stylesheet" href="/pages/shared/style/style_header.css">
-        <link rel="stylesheet" href="/pages/blogs/style/style_article.css">
+        <link rel="stylesheet" href="/pages/shared/style/content_pane.css">
+        <link rel="stylesheet" href="/pages/shared/style/article.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
         <script src="/pages/shared/scripts/script_header.js" async></script>
-        <script src="/pages/blogs/scripts/script_article.js" defer></script>
+        <script src="/pages/shared/scripts/script_article.js" defer></script>
+
     </head>
+
     <body>
 
         <div class="dummy-header"></div>
 
         <main>
-            <div class="article">
 
-                <div class="article-header">
-                    <h1>An Introduction to PyTorch</h1>
-                    <h2>by Sean Bush | March 03, 2026 | 21 min read</h2>
-                </div>
+            <div class="content-pane article">
+
+                <h1>An Introduction to PyTorch</h1>
+                <h2 class="subtitle">by Sean Bush | March 03, 2026 | 21 min read</h2>
 
                 <p>PyTorch is one of the most popular libraries for creating neural network-based models in Python. It provides extensive support for different kinds of networks, from simple multilayer perceptrons to complex convolutional or language-processing networks. PyTorch provides developers with very fine control over model design and over the training process. This high level of customizability makes PyTorch extremely powerful, but it also necessitates that you learn how to work with every single component, a not-insignificant task. Additionally, PyTorch's sometimes confusing syntax can make this already difficult task even more confusing. This article is meant to help you, aspiring developer, get started making your own PyTorch models by teaching you the steps for creating and training models and by clarifying some of the more confusing syntax.</p>
                 <p>This article assumes you have a basic understanding of how neural networks work. If you do not, I highly recommend the first four episodes of 3Blue1Brown's excellent <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;si=hsMObteFCP8kpL7T">Deep Learning series</a> on YouTube, as a starting point. This article will use the same MNIST dataset 3Blue1Brown uses, so it will feel like a natural follow-up. This article also assumes you have an intermediate-level understanding of programming in Python.</p>
@@ -166,7 +173,7 @@
                 </code></pre>
                 <h3>Introducing MNIST</h3>
                 <p>The dataset we will be working with in this article is the MNIST dataset. MNIST is a collection of images of handwritten single digits 0-9. The images are all grayscale, meaning that there is no color. Each pixel is only given a brightness value from 0 to 255, with 0 representing pure black and 255 representing pure white. These images are all 28 by 28 pixels in size. </p>
-                <p><img alt="An image of a hand drawn five" src="five.jpg" /></p>
+                <p><img alt="An image of a hand drawn five" src="../../shared/media/MNIST_example_five.jpg" /></p>
                 <p>MNIST is one of the datasets provided by torchvision, so rather than downloading the data and creating the <code>Dataset</code> object ourselves, we can use the one it supplies. The data will still need to be downloaded--it doesn't get installed alongside torchvision by default--but torchvision will automate the process. </p>
                 <p>We will use <code>torchvision.datasets.MNIST()</code> to instantiate the dataset object. There are a few parameters we need to specify. First, the <code>root</code> parameter, which is the name of the directory the MNIST data will be stored in. For this example, we will store it in a folder called 'data'. The next parameter is the <code>train</code>  parameter, which determines which part of the MNIST dataset to load, the training data or the testing data. We will use both, creating a <code>training_data</code> object for the training data with <code>train=True</code>, and a <code>testing_data</code> object using <code>train=False</code>. Next, we need to set <code>download=True</code> so that it downloads the dataset for us. If the dataset has already been downloaded, setting <code>download=True</code> will simply be ignored. It will not throw an error or re-download the data. </p>
                 <p>Torchvision's MNIST dataset object returns images as PIL objects, but the model will require the input data to be in tensor form. In order to accomplish this, we will add one last parameter to the <code>torchvision.datasets.MNIST()</code> call. Specifically, we need to set <code>transform=torchvision.transforms.ToTensor()</code>. This will automatically convert each image into a tensor where every pixel gets a value from 0 to 1, 0 representing pure black and 1 representing pure white.</p>
@@ -367,12 +374,13 @@
                 <p>By now, you should be familiar with the fundamentals of PyTorch and ready to create some models of your own, but there is still much to learn. Your next steps will likely include trying out different models and model architectures, tracking performance metrics during training, visualizing performance metrics, hyperparameter tuning, and much more. PyTorch has a variety of <a href="https://docs.pytorch.org/tutorials/">tutorials</a> for you to explore when you are ready to move on.</p>
                 <p>There will also be more to come on PyTorch on this blog. Very soon, an article on model validations and hyperparameter tuning will be up, so make sure to check back in occasionally to see what's new. Good luck in your machine learning journey. Onwards and upwards!</p>
 
+
+
+
             </div>
+
         </main>
 
-        <footer>
-
-        </footer>
-
     </body>
+
 </html>

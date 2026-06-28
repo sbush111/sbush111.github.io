@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
+        
         <title>Sean Bush</title>
         <meta charset="utf-8">
-        <link rel="icon" href="/pages/shared/favicon.ico" type="image/png">
-        <link rel="stylesheet" href="/pages/shared/style/style.css">
+        <link rel="icon" href="/pages/shared/media/favicon.ico" type="image/png">
+
+        <link rel="stylesheet" href="/pages/shared/style/constants.css">
+        <link rel="stylesheet" href="/pages/shared/style/global.css">
         <link rel="stylesheet" href="/pages/shared/style/style_header.css">
-        <link rel="stylesheet" href="/pages/blogs/style/style_article.css">
+        <link rel="stylesheet" href="/pages/shared/style/content_pane.css">
+        <link rel="stylesheet" href="/pages/shared/style/article.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
         <script src="/pages/shared/scripts/script_header.js" async></script>
-        <script src="/pages/blogs/scripts/script_article.js" defer></script>
+        <script src="/pages/shared/scripts/script_article.js" defer></script>
+
     </head>
+
     <body>
 
         <div class="dummy-header"></div>
 
         <main>
-            <div class="article">
 
-                <div class="article-header">
-                    <h1>Ensure Your Analysis Aligns with Business Needs</h1>
-                    <h2>by Sean Bush | May 25, 2026 | 7 min read</h2>
-                </div>
+            <div class="content-pane article">
+
+                <h1>How do you ensure your analysis stays aligned with business needs?</h1>
+                <h2 class="subtitle">by Sean Bush | May 25, 2026 | 7 min read</h2>
 
                 <p>How often have you been given a task and, with no additional information, been set loose to complete it on your own? You go to work and quickly realize that you have no clue what exactly your supervisor is asking for. You do your best to complete the project, well aware that your work is unlikely to be particularly useful to the company. When you finally present your project to stakeholders, it is either ignored or you are instructed to redo your analysis. What went wrong here? You began your analysis without a clear understanding of what it would accomplish for the organization, and when you realized this, you did not seek additional information. As a result, your work was ineffective, and both your time and the company's were wasted.</p>
                 <p>We do not want this story to be our reality. We, analysts, need to ensure our projects address specific organizational needs so that our work is both efficient and effective. In this article, I will be going over some ways you can keep your projects aligned with business needs to maximize the value they add to your company and minimize the time you spend stumbling around directionless.</p>
                 <hr />
-                <h1>Identify the Business Need</h1>
+                <h2>Identify the Business Need</h2>
                 <p>In many cases, when you are asked to start a project, the request should tell you what problem you will be trying to solve. Perhaps you will receive a request from the marketing team to report on the effectiveness of recent advertising campaigns. The company needs to increase the impact of its marketing by focusing on techniques that have been effective and discarding those that have not. This gives your analysis a clear direction: quantify the impact of different marketing campaigns and identify the most effective ones to optimize the marketing budget and increase company revenue.</p>
                 <p>In other cases, the business need may be more difficult to ascertain. Say, for example, that you were given some financial data for the company and asked to find actionable insights. You can assume you need to find ways to increase company revenue, but that is a vague goal that will not give your project any direction. To make your analysis actionable, you need to understand the situation your project's stakeholders are in. What unique issues are they facing? What information are they trying to get out of your project? What kind of actions are available to them once your analysis is done? If you don't know the answers to these questions, then you have no way of evaluating if your analysis will aid them whatsoever.</p>
                 <p>There are several ways to find answers if you don't have them. You can start by having conversations with stakeholders, asking them directly what they are looking for from your project: the problems they want it to solve, the deliverables they expect from you, and the level of detail they want in your reports. This conversation can be quick and casual, or it can be more of a structured interview, depending on your relationship with the stakeholders and the amount of information you are trying to glean. If you are working on a project that will be viewed or used by a large group of people, such as a statistical dashboard that all employees in your company may use, you might consider creating a survey or interacting with focus groups to get a sense of what would be most useful for your users.</p>
-                <h1>Define a Measurable Project Goal</h1>
+                <h2>Define a Measurable Project Goal</h2>
                 <p>Having consulted with your project's stakeholders, you should now have a solid idea of what problem your project needs to address. Next, you need to synthesize that information into a single, clear goal for your project. It should be measurable, meaning that you can precisely evaluate whether your project is meeting it or not, and it should encompass the business needs you identified in the previous step. This goal will be your north star. You will periodically assess if you are straying from the project's goal and, if so, how you should adjust to keep yourself on track. </p>
                 <p>Your goal will vary depending on what type of project you are completing. If your project involves performing statistical analysis, you will need to identify what research questions you want to answer that are relevant to the business needs. The question will determine your choice of statistical tests or models, your deliverables, your visualizations, and any other major decision you will make. In contrast, for a modeling project, your goal may be comprised of the predictions you want to make with a machine learning model, the accuracy the model should achieve, or the problems you want your model to solve for your users. This project goal will inform your choice of model and the metrics by which you will judge it. Ensure you are addressing each of the identified business needs in your project goal so it can help you keep your project laser-focused on providing value to your stakeholders.</p>
-                <h1>Identify Functional and Nonfunctional Needs</h1>
+                <h2>Identify Functional and Nonfunctional Needs</h2>
                 <p>Once you have your goal outlined, the next step in the process will be to expand that goal by defining all of the functional and nonfunctional needs your project will need to meet. Note that these are distinct from the "business needs" addressed earlier in this article. If you are unfamiliar with the terms, I recommend reading <a href="https://www.geeksforgeeks.org/software-engineering/functional-vs-non-functional-requirements/">this article</a> from written by Chitra Singla and published on <strong>Geeks4Geeks.com</strong>. In short, functional needs are those which define <em>what</em> your model or project needs to accomplish, while nonfunctional needs are those which define <em>how</em> the model or project must accomplish its purposes. </p>
                 <p>For an analytic project, examples of functional needs might be the specific questions that need to be answered and tests that need to be performed. In contrast, nonfunctional needs may include requirements like ensuring your code is reproducible or that your reporting is tailored towards a specific audience. For a modeling project, functional needs would describe the purpose of your model, including what data it should input and output, while nonfunctional needs would consist of things like model transparency and security. Identifying all the functional and nonfunctional needs of your project will help you turn your singular research goal into a set of criteria you can use to guide each step of your process. To identify your needs, be sure to connect with, or even formally interview, the direct beneficiaries of your analysis to determine how you can best serve them with your project.</p>
-                <h1>Formalize Your Research Plan</h1>
+                <h2>Formalize Your Research Plan</h2>
                 <p>At this point, you should have essentially all requirements for your project identified. Now, you can compile your research plan. In this plan, you should document what business needs you've identified, what your research goal will be, and what your functional and nonfunctional project needs are. In addition to this information, which we have already discussed, you should also include rough timelines and any hard deadlines for the project. You also determine and list what deliverables your project will provide, such as reports, model API, or presentations. </p>
                 <p>Before you begin work on the project, the plan can be given to any interested parties so they can approve the plan or point out any issues or gaps in the plan that should be rectified before you begin your research. While you are working on your project, this document will guide your analysis and provide a way to assess your current progress. This will make it easier to communicate the current state of your project to various stakeholders. Having a completed plan will ensure you never stray from the business needs you spent so much time identifying.</p>
-                <h1>Involve Stakeholders Throughout</h1>
+                <h2>Involve Stakeholders Throughout</h2>
                 <p>Everything discussed thus far has been presented as preliminary work, meant to be done before you begin your project. We will discuss later how your assessment of business needs should evolve over time, but for now, we will focus on the communication you have with your stakeholders. It is not the case that your interactions with stakeholders should be limited to a planning period before your project gets properly underway. Instead, you should ensure that you are involving project stakeholders throughout the course of the project. This involvement can take many forms: continued short conversations, real-time reporting via dashboards, or occasional meetings and updates. Keeping in touch with stakeholders will give them the opportunity to evaluate if your project is addressing their needs, and will give you the opportunity to ask them for clarifications, updates, or changes to their requirements for the project. Involving stakeholders throughout rather than exclusively at the beginning and ending of the project will allow your project to adapt to changing needs and prevent it from going off-track.</p>
-                <h1>Document Your Progress and Update the Plan TODO</h1>
+                <h2>Document Your Progress and Update the Plan TODO</h2>
                 <p>As you are performing your analysis, make sure that you are documenting your progress each step of the way. This could include daily logs of your work, references to the datasets you used, summaries of stakeholder conversations, or notes explaining why certain decisions were made during the project. Thorough documentation makes it easier to evaluate your current progress, reproduce your work later, and communicate updates to stakeholders and teammates. It also provides accountability, ensuring that each stage of the project can be traced back to the original business requirements and project goals.</p>
                 <p>In addition to documentation, you should also periodically consider where the plan may need to be updated. A project that was perfectly aligned with business needs at the start may become less useful if business needs change due to evolving market conditions, company policies, or business goals. By reviewing your plan regularly, you can identify areas where adjustments are necessary before your project drifts too far off course.</p>
                 <hr />
                 <p>With these tools, you can ensure that your data science project stays aligned with business needs, providing stakeholders with the tools or information they require. You can accomplish this by understanding the organizational problems your project is intended to solve, translating those problems into measurable goals, involving stakeholders throughout the process, and continually evaluating whether your work remains useful and actionable. Without that alignment, even technically strong analyses may fail to provide meaningful value to the organization. With that alignment, you can ensure your work stays focused and effective. These practices will help your analyses remain practical, impactful, and closely connected to the goals of the organization.</p>
 
+
+
+
             </div>
+
         </main>
 
-        <footer>
-
-        </footer>
-
     </body>
+
 </html>

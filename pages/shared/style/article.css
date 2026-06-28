@@ -8,6 +8,31 @@
     margin-bottom: 1rem;
 }
 
+.article code {
+    border-radius: 5px;
+    border: 2px solid white;
+    background-color: var(--article-code-bg-color);
+    padding: 0 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.article pre code {
+    display: block;
+    padding: 5px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.article code p {
+    margin: 0;
+    font-family: inherit;
+}
+
+.article img {
+    min-width: 112px;
+    image-rendering: pixelated;
+}
+
 .article p:has(img) {
     text-align: center;
 }

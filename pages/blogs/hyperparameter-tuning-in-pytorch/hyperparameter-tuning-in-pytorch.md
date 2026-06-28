@@ -6,7 +6,7 @@ If you have spent any time experimenting with different models, you will quickly
 
 Hyperparameter tuning is not something PyTorch provides by default. Rather, you must either use an additional library or you must implement it yourself. This article will be doing the latter. This article represents my personal system for performing hyperparameter tuning, which I developed while studying Data Science at Western Governors University. Unlike the previous article, which mostly just described the common syntax used for most PyTorch projects, the contents of this article reflect my own unique methodology. This article assumes you have an intermediate-level understanding of Python and an understanding of the concepts explained in the previous article.
 
-# Hyperparameter Tuning at a Glance
+## Hyperparameter Tuning at a Glance
 
 Fundamentally, hyperparameter tuning is a process of brute-force searching for a set of hyperparameters that works well. You train a model with one set of hyperparameters and record its performance. Then you repeat with another set of hyperparameters. Once you have seen a sufficient number of models, you select the hyperparameters that performed the best. As you may imagine, this can take a significant amount of time, as with each iteration of the process, you are training a new model from scratch. 
 
@@ -16,13 +16,13 @@ The other way to perform hyperparameter tuning is through a random search. You s
 
 One last detail to be discussed about tuning before we start writing code is that of data. In the previous article, we worked with two versions of our dataset, the training set and the testing set. The purpose of this split is to be able to test the model on data it was not trained on, so we can see how well the model performs outside the training set. If you perform hyperparameter tuning, you need to introduce a third set, generally called the validation set. As we try out different combinations of hyperparameters, each model will be trained on the training set. Then, to compare the models against each other, we will see how they perform on the validation set. The model that performs the best will then be selected to perform further analysis. However, we need to test this model on a third set of data, the testing set. This is because we already know the model performs well on the validation set--we used that set to choose the best-performing model after all. We need to see how it performs on another set to see if that good performance was a fluke due to being well-aligned with the particular examples in the validation set or a genuine property of the model that will generalize to any arbitrary set. With that said, we can dig into the code.
 
-# Install libraries & Download data
+## Install libraries & Download data
 
 If you haven't already, make sure you install PyTorch, with CUDA if you have a GPU available. I also recommend installing the Jupyter package to use as the development environment. Additionally, for this exploration, you will need to install Scikit-Learn, Pandas, Numpy, MatPlotLib, and TQDM. 
 
 The dataset for this analysis will be a synthetic dataset simulating student performance data on a generic exam. You can [download the dataset from Kaggle](https://www.kaggle.com/datasets/amar5693/student-performance-dataset/data). Specifically, you want to download the file "ultimate_student_productivity_dataset_5000.csv". Per the entry on Kaggle, this dataset is free to use under the Creative Commons - Public Domain license.
 
-# Import libraries
+## Import libraries
 
 With the libraries installed, we will begin our analysis by importing the libraries, as follows.
 
@@ -53,7 +53,7 @@ True
 
 If this function call returns false, something has gone wrong with your installation of PyTorch with CUDA. 
 
-# Load and explore data
+## Load and explore data
 
 Now, we can load the data set and get a sense of its contents. Use the `read_csv()` function from Pandas to load the data from 'ultimate_student_productivity_dataset_5000.csv'. I encourage you to print the contents of the dataframe and explore what each column represents.
 
@@ -104,13 +104,13 @@ memory usage: 820.4 KB
 
 As you can see, there are no missing values, and most of the data is stored as a number, but there are three that are stored as strings: gender, academic level, and internet quality. 
 
-# Define the problem
+## Define the problem
 
 Now that we have a sense of what the data represents, we can define the problem. The goal of this analysis will be to develop a model that can predict a student's exam score based on the various factors listed in the data set. We will develop this model in PyTorch and will use hyperparameter tuning to optimize its performance. 
 
 It should be noted that using a neural network to solve a problem like this one is probably inadvisable in real-world settings. There are other models, like gradient boosting regression, which will perform better than a standard network if your goal is to create a model with strong predictive power. If your goal is to create a model that has explanatory power, there are significantly easier-to-interpret models like linear regression available. However, for the purpose of this analysis, the particular dataset is of little importance. It is simply meant to provide a backdrop on which we can explore hyperparameter tuning in PyTorch.
 
-# Prepare the data
+## Prepare the data
 
 Now we will prepare our data for analysis. First, let's choose which columns we are going to use in our analysis. We need the exam score, since that will be the output variable we are trying to predict. We do not need the student ID variable, since a student's ID has nothing to do with their exam scores. Likewise, a student's age and academic level are unlikely to influence the scores, since tests are designed with certain ages in mind. The other columns we may consider removing are the non-numeric ones. We could use a process like one-hot encoding to include these in the analysis, but for our purposes, the easiest way to handle them is simply to remove them--there are plenty of other columns in the dataset that we can use as predictors. The following line of code removes the aforementioned columns:
 
@@ -154,7 +154,7 @@ validate_data.to_csv('validate_data.csv', index=False)
 test_data.to_csv('test_data.csv', index=False)
 ```
 
-# Define the dataset
+## Define the dataset
 
 Now, we will begin the analysis by creating a PyTorch dataset object to represent our data. Unlike in the previous article, where Torchvision supplied the Dataset object, we will need to create one ourselves. Recall from the previous article that we need to define two methods for our dataset to function: `__getitem__()` and `__len__()`. We will also define a constructor to load the data into memory. 
 
@@ -197,7 +197,7 @@ Output:
          0.1359,  1.0035,  0.9971,  0.1717, -0.9497,  1.0687, -0.8931]), tensor([1.]))
 ```
 
-# Define the model
+## Define the model
 
 Next, we want to define the architecture of the model itself. For this analysis, we will use a simple fully-connected model with linear layers. We will include dropout layers, with the ability to choose different dropout rates (this will be one of our hyperparameters), and we will use ReLU activation layers. 
 
@@ -232,7 +232,7 @@ class StudentTestScoreRegressor(torch.nn.Module):
 
 This model has three main layers. The first takes in the 15 inputs and maps them to 10 neurons, followed by ReLU and dropout layers. The second maps the 10 neurons to 5 neurons, followed by another set of ReLU and dropout layers. The final layer takes in the 5 neurons and maps them to a single output value representing the model's prediction for the exam score. 
 
-# Define hyperparameters
+## Define hyperparameters
 
 Now we can get to the heart of this analysis. We need to determine which hyperparameters we want to tune. We already mentioned that we will tune the dropout rate. Additionally, we will be using Adam as our optimizer, so we can tune the learning rate and the weight decay. We will take these hyperparameters and create a Dataclass. If you are unfamiliar with Dataclasses, I recommend reading [this article from GeeksForGeeks](https://www.geeksforgeeks.org/python/understanding-python-dataclasses/). The Dataclass will be class Config and will list every hyperparameter we wish to tune, along with data types and default values. Providing defaults will be useful, as if we decide not to tune one of the parameters, it has a default to fall back to.
 
@@ -257,7 +257,7 @@ Output:
 Config(LEARNING_RATE=0.001, WEIGHT_DECAY=0.0, NUM_EPOCHS=100, DROPOUT=0.0)
 ```
 
-# Create the training loop
+## Create the training loop
 
 We will define the training loop in a very similar way to how we defined it in the previous article. The only difference is that we will want to be able to track how well the model is performing during the training process. To accomplish this, for each training epoch, we will also evaluate the model using the validation set. This will allow us to see how the model is performing on unseen data as it is being trained. The training loop will be defined as follows:
 
@@ -331,7 +331,7 @@ def train(model: StudentTestScoreRegressor,
 
 Note the differences between this implementation and the one shown in the previous article. Most notably, losses for both the training dataset and the validation dataset are being tracked as the model is trained. Also notable is the use of a dataclass for the function's return value--this is a convenient way to organize all of the elements that a function returns.
 
-# Define the Hyperparameter Search
+## Define the Hyperparameter Search
 
 At this stage, we have the building blocks necessary to define our hyperparameter search. We have identified all of the hyperparameters we wish to tune, and we have defined the training loop to return the training and validation losses of the model. We will use the final validation loss each model achieved as the metric by which we judge a model's quality. We will try out many different models and select the one with the lowest final validation lost as our "best model."
 
@@ -393,7 +393,7 @@ def randomized_search(param_grid: dict, n: int, random_state: int | None = None)
 
 Note the use of tqdm around the central loop. If you are unfamiliar with the package, tqdm will automatically create a convenient progress bar for any iterable you give it. The package works well with Jupyter Notebooks and can be an extremely useful addition to your data scientist's toolbox.
 
-# Performing the Search
+## Performing the Search
 
 Now, we can actually conduct the hyperparameter search. First, we need to define the parameters that we wish to tune and give the possible values. Here, we establish with our parameter grid that we will be tuning the learning rate, the weight decay, and the dropout proportion. 
 
@@ -439,11 +439,11 @@ plt.legend()
 
 Output:
 
-![Loss plot](plot.PNG)
+![Loss plot](../../shared/media/training_loss_plot.png)
 
 This can be helpful for identifying if your model is overfitting, though that is a conversation for another blog post.
 
-# Testing the model
+## Testing the model
 
 Once we have identified our best model, the final step is to test it on the testing dataset. Since we used the validation set to identify the best model, the model may be biased towards performing better on that dataset than on unseen data. We define a testing loop in a way very reminiscent of the one defined in the previous article:
 
@@ -498,7 +498,7 @@ With this, we can see that our model performs about as well on the testing data 
 
 Note that the model is not actually performing as well as we would probably want. Exam scores in this dataset generally range between 0 and 60, so a mean squared error of 25 is not great. As stated at the beginning of this article, a simple linear neural network is not actually well-suited for this particular prediction task. Rather, this was simply meant to be a simple example for illustrating the process of performing hyperparameter tuning in PyTorch. 
 
-# Conclusion
+## Conclusion
 
 If you have followed along with this article, you have now learned my system for performing hyperparameter tuning in PyTorch. You should now be able to tweak your PyTorch models' performances as you continue in your data science journey. In practise, you will likely be performing hyperparameter tuning on most models that you create, so this is an extremely useful skill for you to have developed. 
 

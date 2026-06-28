@@ -2,9 +2,9 @@
 
 I have just recently completed my Image Equivalence Model project, which is available on [the portfolio page of my website](https://sean-bush.com/pages/portfolio). In it, I created a convolutional neural network capable of determining if two modified images originate from the same source. The project was conceived as an illustration of the skills necessary to build the kind of model you might see a company use if they wanted to provide a reverse image search algorithm. To that end, I needed a dataset that supplied transformed image pairs, some pairs containing images from the same source and others from different sources.
 
-![A screenshot of a pair of images derived from the same source image of a dog, but haveing been modified slightly. Text below reads "Model predicts same with 99.76% confidence. Model prediction is correct."](example_same.png)
+![A screenshot of a pair of images derived from the same source image of a dog, but haveing been modified slightly. Text below reads "Model predicts same with 99.76% confidence. Model prediction is correct."](../../shared/media/image_pair_from_same_source.png)
 
-![A screenshot of a pair of images derived from the different source images, one from an image of flowers and the other from an image of a mountain. Text below reads "Model predicts different with 100.00% confidence. Model prediction is correct.](example_different.png)
+![A screenshot of a pair of images derived from the different source images, one from an image of flowers and the other from an image of a mountain. Text below reads "Model predicts different with 100.00% confidence. Model prediction is correct.](../../shared/media/image_pair_from_different_sources.png)
 
 ## My Data Perparation Process
 

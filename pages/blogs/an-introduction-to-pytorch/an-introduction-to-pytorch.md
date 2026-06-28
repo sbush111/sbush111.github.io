@@ -215,7 +215,7 @@ tensor([[12,  0, -2]]) tensor([0])
 
 The dataset we will be working with in this article is the MNIST dataset. MNIST is a collection of images of handwritten single digits 0-9. The images are all grayscale, meaning that there is no color. Each pixel is only given a brightness value from 0 to 255, with 0 representing pure black and 255 representing pure white. These images are all 28 by 28 pixels in size. 
 
-![An image of a hand drawn five](five.jpg)
+![An image of a hand drawn five](../../shared/media/MNIST_example_five.jpg)
 
 MNIST is one of the datasets provided by torchvision, so rather than downloading the data and creating the `Dataset` object ourselves, we can use the one it supplies. The data will still need to be downloaded--it doesn't get installed alongside torchvision by default--but torchvision will automate the process. 
 
