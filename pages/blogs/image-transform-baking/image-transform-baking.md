@@ -6,7 +6,7 @@ I have just recently completed my Image Equivalence Model project, which is avai
 
 ![A screenshot of a pair of images derived from the different source images, one from an image of flowers and the other from an image of a mountain. Text below reads "Model predicts different with 100.00% confidence. Model prediction is correct.](example_different.png)
 
-# My Data Perparation Process
+## My Data Perparation Process
 
 I chose to take a common, easily accessible dataset as the source for my data. I looked originally through the datasts supplied by Torchvision for any pair datasets, but did not find any that met my needs. At that point, I decided to generate my own pairs from an existing dataset. I chose the CIFAR100 dataset as the large number of classes gave me confidence that the model would be unlikely to overfit to the particular types of images in CIFAR, and the low-resolution of the dataset was ideal for allowing my fairly weak personal computer to perform the analysis. Once I had decided upon this, I had a choice to make: to bake or not to bake. Do I generate the image pairs beforehand and save the results to a file, "baking" them beforehand? Or do I generate the images dynamically at runtime whenever the model loads a batch of data to train on? I will, for the rest of this article, refer to the former method as the "baking" method (parlance borrowed from the field of real-time computer graphics) and the latter as the "dynamic" method.
 
@@ -16,7 +16,7 @@ For the reasons listed so far, I used this dynamic method when I originally impl
 
 It was around half-way through the project when I completely rewrote the code managing the loading of data. Now, since I was "baking" the transformations beforehand, I needed to write a script to perform the baking and run it before any other analysis occurred. To this end, I wrote the script `preprocess_data.py`, which loaded the CIFAR dataset using torchvision, generated the sixty-thousand image pairs with transformations applied to all images, and saved the results to a number of numpy arrays files. An additional benefit to this methodology is that the images would no longer be loaded in a PIL format, as the CIFAR dataset does by default, but as raw pixel values. In the original implementation, every image had to be converted whenever it was loaded, adding yet another step to the process. All together, the optimizations I made by baking the transformations reduced the training times by about 60%-70%. An epoch that had originally taken more than a minute to complete was now taking twenty to thirty seconds to complete. The reduction came without a significant reduction in model quality as well, as the final model still achieved an accuracy of nearly 98% on unseen data.
 
-# My Reflections
+## My Reflections
 
 The lessons to be learned from this story is that there a number of factors that need to be considered when deciding whether or not to bake your transformations beforehand.
 

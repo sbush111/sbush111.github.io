@@ -3,3 +3,17 @@
     text-justify: inter-word;
     margin-bottom: 1rem;
 }
+
+.article h2 {
+    margin-bottom: 1rem;
+}
+
+.article p:has(img) {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+}
