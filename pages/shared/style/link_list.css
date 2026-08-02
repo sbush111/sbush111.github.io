@@ -16,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
+    width: 100%;
 }
 
 .link-list a:hover {
