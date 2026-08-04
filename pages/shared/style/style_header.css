@@ -1,7 +1,7 @@
 :root {
     --header-height: 3rem;
     --header-bg-color: #3a3a3a;
-    --header-bg-hover-color: #505050; 
+    --header-bg-hover-color: #505050;
 }
 
 header {
@@ -50,6 +50,13 @@ header button {
     font-size: 2rem;
     height: 100%;
     width: 5rem;
+    border: none;
+    color: white;
+    background-color: var(--header-bg-color);
+}
+
+header button:hover {
+    background-color: var(--header-bg-hover-color);
 }
 
 #button-container {
