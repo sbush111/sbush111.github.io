@@ -91,7 +91,7 @@ header menu.hide {
     display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
     #nav-bar {
         display: none;
@@ -103,7 +103,7 @@ header menu.hide {
 
 }
 
-@media (min-width: 901px) {
+@media (min-width: 769px) {
 
     #nav-menu {
         display: none;
