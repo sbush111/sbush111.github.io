@@ -9,7 +9,6 @@
     column-gap: 0.5rem;
     grid-template-columns: 2rem 22rem;
     grid-auto-rows: 2rem;
-    justify-items: left;
     align-items: center;
     font-size: 1.5rem;
 }

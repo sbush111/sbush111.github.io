@@ -9,6 +9,8 @@
 .link-list a {
     background-color: var(--header-bg-color);
     color: white;
+    box-sizing: border-box;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: black 5px 5px;
@@ -16,7 +18,6 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    width: 100%;
 }
 
 .link-list a:hover {
@@ -37,5 +38,14 @@
 .link-list a p {
     font-size: 1rem;
     margin-top: 10px;
-    text-align: justify;
+}
+
+@media (max-width: 768px) {
+
+    .link-list a h1 {
+
+        font-size: 1.5rem;
+
+    }
+
 }
