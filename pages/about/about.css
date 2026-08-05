@@ -5,3 +5,14 @@
     border-radius: 10px;
     box-shadow: black 8px 8px;
 }
+
+@media (max-width: 768px) {
+
+    #img-headshot {
+        float: none;
+        width: 90%;
+        max-width: 200px;
+        margin: 0 auto 20px auto;
+    }
+
+}
