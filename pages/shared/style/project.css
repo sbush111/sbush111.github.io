@@ -15,7 +15,6 @@ li:has(li) {
 }
 
 img {
-    height: 300px;
     display: block;
     margin: 0 auto;
 }

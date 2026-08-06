@@ -3,3 +3,7 @@
     max-width: 800px;
     margin-bottom: 50px;
 }
+
+.content-pane img {
+    width: 100%;
+}
