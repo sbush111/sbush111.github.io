@@ -2,13 +2,11 @@
     --header-height: 3rem;
     --header-bg-color: #3a3a3a;
     --header-bg-hover-color: #505050;
+    --header-side-padding: 1rem;
 }
 
 header {
     position: fixed;
-    display: grid;
-    grid-template-columns: repeat(3, 33.33vw);
-    justify-items: center;
     background-color: var(--header-bg-color);
     height: 3rem;
     width: 100vw;
@@ -20,17 +18,25 @@ header {
 }
 
 #nav-home {
+    position: absolute;
+    left: var(--header-side-padding);
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
-    grid-column: 1 / 1;
 }
 
 #nav-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    height: 100%;
     font-size: 1rem;
     display: flex;
-    height: 100%;
     align-items: center;
     gap: 20px;
-    grid-column: 2 / 2;
 }
 
 header a {
@@ -60,7 +66,10 @@ header button:hover {
 }
 
 #button-container {
-    grid-column: 3 / 3;
+    position: absolute;
+    right: var(--header-side-padding);
+    top: 0;
+    height: 100%;
 }
 
 #nav-menu-toggle {
