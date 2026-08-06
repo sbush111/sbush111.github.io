@@ -13,11 +13,11 @@
     font-size: 1.5rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
 
     .icon-link-list {
         font-size: 1rem;
-    grid-template-columns: 2rem 16rem;
+        grid-template-columns: 2rem 15rem;
     }
 
 }
