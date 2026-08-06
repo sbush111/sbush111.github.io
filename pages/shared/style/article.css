@@ -20,6 +20,8 @@
     padding: 5px;
     margin-bottom: 1rem;
     white-space: pre-wrap;
+    overflow: auto;
+    white-space: pre;
 }
 
 .article code p {
@@ -29,7 +31,7 @@
 
 .article img {
     min-width: 112px;
-    image-rendering: pixelated;
+    max-width: 100%;
 }
 
 .article p:has(img) {
@@ -40,4 +42,12 @@
     text-align: center;
     font-size: 1rem;
     font-style: italic;
+}
+
+@media (max-width: 768px) {
+
+    pre {
+        font-size: 0.9rem;
+    }
+
 }

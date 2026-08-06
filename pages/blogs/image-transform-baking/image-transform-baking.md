@@ -20,15 +20,15 @@ It was around half-way through the project when I completely rewrote the code ma
 
 The lessons to be learned from this story is that there a number of factors that need to be considered when deciding whether or not to bake your transformations beforehand.
 
-1. Are the transformations actually the source of your slowdown?
+### 1. Are the transformations actually the source of your slowdown?
 
 In my case, reducing the size of the transformations helped considerably. This is because the process was being significantly CPU-limited on my machine. I could not make full use of my computer's GPU because too much time was being spent processing the image transformations on the CPU before they could even be moved over to my graphics card. I could see this by monitoring my CPU and GPU usage while the model was training: the CPU was being used nearly to its full extent while the GPU was seeing almost no usage at all. For this reason, I knew that there was likely to be a speed-up, and indeed there was.
 
-2. How significant is the risk of overfitting?
+### 2. How significant is the risk of overfitting?
 
 There is an issue primarily of dataset size that needs to be considered when one is deciding whether or not to bake transformations. One of the main advantages of the dynamic method is that it prevents overfitting since the model basically never sees the same training example twice. It is still possible for the model to overfit on the more general set of source images, but the risk of overfitting is significantly reduced. In my project's case, however, the size of the dataset in question gave me confidence that this would not be a significant issue. The CIFAR dataset contains over 60,000 images, and the subset I used for training contained 40,000 images. This means that even though the transformations were baked in, the model was still encountering 40,000 unique image pairs every training epoch.
 
-3. Is the speed-up going to result in a better model or a worse one?
+### 3. Is the speed-up going to result in a better model or a worse one?
 
 This is the most central question, and it synthesizes the information from the previous two. Baking your dataset comes with a trade-off: faster training times for fewer unique data points. It is obvious that the latter would create a reduction in model quality. However, a more subtle point to note is that the former can provide a boost in model quality as well. Reducing training times means that the model can train for longer, and longer training times can result in better model performance in some cases.
 
